@@ -1,7 +1,17 @@
 <template>
-  <div class="container swap" :class="skin">
+  <div style="position: relative;margin: 0 auto" class="container swap "    :class="skin">
+    <h1>TRY MR</h1>
     <div class="main">
       <div class="swp-main">
+      <vdr
+        :w="280"
+        :h="510"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="10"
+        @refLineParams="getRefLineParams">
         <div class="right">
           <div class="coin-menu">
             <div style="padding: 8px 10px;height:48px;">
@@ -10,9 +20,19 @@
             <div class="sc_filter" style="display: none;">
               <span @click="changeBaseCion('usdt')" :class="{active:basecion==='usdt'}">USDT</span>
             </div>
-            <Table height="463" @on-current-change="gohref" highlight-row id="USDT" v-show="basecion==='usdt'" :columns="coins.columns" :data="dataIndex"></Table></Table>
+            <Table height="463" @on-current-change="gohref" highlight-row id="USDT" v-show="basecion==='usdt'" :columns="coins.columns" :data="dataIndex"></Table>
           </div>
         </div>
+      </vdr>
+      <vdr
+        :w="600"
+        :h="510"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="10"
+        @refLineParams="getRefLineParams">
         <div class="center">
           <div class="symbol">
             <div class="item" style="margin-left: 10px;">
@@ -54,6 +74,16 @@
             <DepthGraph :class="{hidden:currentImgTable==='k'}" ref="depthGraph"></DepthGraph>
           </div>
         </div>
+      </vdr>
+      <vdr
+        :w="1120"
+        :h="320"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="10"
+        @refLineParams="getRefLineParams">
         <div style="width:100%;margin-top: 5px;flex: 0 0 100%;" class="overflow-x-scroll">
           <div class="order" style="background: #999;margin-right: 5px;">
             <div class="order-handler fixed-width">
@@ -68,8 +98,18 @@
             </div>
           </div>
         </div>
+      </vdr>
       </div>
       <!-- 盘口 -->
+      <vdr
+        :w="280"
+        :h="840"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="10"
+        @refLineParams="getRefLineParams">
       <div class="left plate-wrap" style="position:relative; flex: 0 0 17%;">
         <div class="handlers">
           <span @click="changePlate('all')" class="handler handler-all" :class="{active:selectedPlate=='all'}"></span>
@@ -226,7 +266,17 @@
           </div>
         </div>
       </div>
+      </vdr>
       <!-- 成交记录 -->
+      <vdr
+        :w="280"
+        :h="840"
+        :parent="true"
+        :debug="false"
+        :isConflictCheck="true"
+        :snap="true"
+        :snapTolerance="10"
+        @refLineParams="getRefLineParams">
       <div class="left plate-wrap" style="position:relative; flex: 0 0 13%;">
         <div style="background-color: #192330;height:40px;line-height:40px;padding-left:5px;color:#61688A;font-size: 13px;">
           <span>{{$t("swap.latestdeal")}}</span>
@@ -265,8 +315,8 @@
           </div>
         </div>
       </div>
+      </vdr>
     </div>
-
     <!-- 弹出框: 变更仓位模式 -->
     <Modal
         v-model="marginModeModal"
@@ -310,6 +360,17 @@
             <Button type="primary" size="large" @click="adjustLeverage()">{{$t("common.ok")}}</Button>
         </div>
     </Modal>
+    <h1>TRY MR 2</h1>
+    <span class="ref-line v-line"
+            v-for="item in vLine"
+            v-show="item.display"
+            :style="{ left: item.position, top: item.origin, height: item.lineLength}"
+      />
+      <span class="ref-line h-line"
+            v-for="item in hLine"
+            v-show="item.display"
+            :style="{ top: item.position, left: item.origin, width: item.lineLength}"
+       />
   </div>
 </template>
 
@@ -321,12 +382,18 @@ var SockJS = require("sockjs-client");
 var moment = require("moment");
 import DepthGraph from "@components/exchange/DepthGraph.vue";
 import $ from "@js/jquery.min.js";
+//import VueDraggableResizable from './components/vue-draggable-resizable'
+//import './components/vue-draggable-resizable.css'
+import vdr from 'vue-draggable-resizable-gorkys'
+import 'vue-draggable-resizable-gorkys/dist/VueDraggableResizable.css'
 
 export default {
-  components: { expandRow, DepthGraph},
+  components: { expandRow, DepthGraph,vdr},
   data() {
     let self = this;
     return {
+      vLine: [],
+      hLine: [],
       buyLeverage: "10",
       sellLeverage: "10",
       changeLeverageType: 1, // 多仓：1，空仓：2
@@ -1234,6 +1301,11 @@ export default {
     },
     silderGo(silder, val) {
       this[silder] = val;
+    },
+    getRefLineParams (params) {
+      const { vLine, hLine } = params
+      this.vLine = vLine
+      this.hLine = hLine
     },
     init() {
       var params = this.$route.params.pair;
