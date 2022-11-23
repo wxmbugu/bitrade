@@ -1,7 +1,6 @@
 <template>
-  <div style="position: relative;margin: 0 auto" class="container swap "    :class="skin">
-    <h1>TRY MR</h1>
-    <div class="main">
+  <div class="container swap "    :class="skin">
+    <div style=" height: 800px; width: 1200px; position: relative;margin: 0 auto" class="main">
       <div class="swp-main">
       <vdr
         :w="280"
@@ -24,6 +23,7 @@
           </div>
         </div>
       </vdr>
+
       <vdr
         :w="600"
         :h="510"
@@ -75,6 +75,7 @@
           </div>
         </div>
       </vdr>
+
       <vdr
         :w="1120"
         :h="320"
@@ -316,6 +317,16 @@
         </div>
       </div>
       </vdr>
+      <span class="ref-line v-line"
+            v-for="item in vLine"
+            v-show="item.display"
+            :style="{ left: item.position, top: item.origin, height: item.lineLength}"
+      />
+      <span class="ref-line h-line"
+            v-for="item in hLine"
+            v-show="item.display"
+            :style="{ top: item.position, left: item.origin, width: item.lineLength}"
+       />
     </div>
     <!-- 弹出框: 变更仓位模式 -->
     <Modal
@@ -360,17 +371,6 @@
             <Button type="primary" size="large" @click="adjustLeverage()">{{$t("common.ok")}}</Button>
         </div>
     </Modal>
-    <h1>TRY MR 2</h1>
-    <span class="ref-line v-line"
-            v-for="item in vLine"
-            v-show="item.display"
-            :style="{ left: item.position, top: item.origin, height: item.lineLength}"
-      />
-      <span class="ref-line h-line"
-            v-for="item in hLine"
-            v-show="item.display"
-            :style="{ top: item.position, left: item.origin, width: item.lineLength}"
-       />
   </div>
 </template>
 

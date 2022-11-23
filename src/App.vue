@@ -1,5 +1,5 @@
 <template>
-  <div  :class="pageView">
+  <div :class="pageView">
     <div class="page-content">
       <div class="time_download" style="display: none;">
         <div class="leftwrapper">
