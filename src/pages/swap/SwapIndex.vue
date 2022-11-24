@@ -3,6 +3,7 @@
     <div style=" height: 800px; width: 1200px; position: relative;margin: 0 auto" class="main">
       <div class="swp-main">
       <vdr 
+      :h="510"
       :x="-330" 
       :y="5" 
       class-name="my-class"
