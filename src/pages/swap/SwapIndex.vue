@@ -2,15 +2,12 @@
   <div class="container swap "    :class="skin">
     <div style=" height: 800px; width: 1200px; position: relative;margin: 0 auto" class="main">
       <div class="swp-main">
-      <vdr
-        :w="280"
-        :h="510"
-        :parent="true"
-        :debug="false"
-        :isConflictCheck="true"
-        :snap="true"
-        :snapTolerance="10"
-        @refLineParams="getRefLineParams">
+      <vdr 
+      :h="510"
+      :x="-330" 
+      :y="5" 
+      class-name="my-class"
+      >
         <div class="right">
           <div class="coin-menu">
             <div style="padding: 8px 10px;height:48px;">
@@ -23,16 +20,12 @@
           </div>
         </div>
       </vdr>
-
-      <vdr
-        :w="600"
-        :h="510"
-        :parent="true"
-        :debug="false"
-        :isConflictCheck="true"
-        :snap="true"
-        :snapTolerance="10"
-        @refLineParams="getRefLineParams">
+      <vdr 
+      :w="1120"
+      :h="510" 
+      :x="-124" 
+      :y="5"
+      style="border: 1px solid black;">
         <div class="center">
           <div class="symbol">
             <div class="item" style="margin-left: 10px;">
@@ -76,15 +69,13 @@
         </div>
       </vdr>
 
-      <vdr
-        :w="1120"
-        :h="320"
-        :parent="true"
-        :debug="false"
-        :isConflictCheck="true"
-        :snap="true"
-        :snapTolerance="10"
-        @refLineParams="getRefLineParams">
+      <vdr 
+      :w="1320"
+      :h="320"
+      :x="-330" 
+      :y="520"
+      style="border: 1px solid black;"
+      >
         <div style="width:100%;margin-top: 5px;flex: 0 0 100%;" class="overflow-x-scroll">
           <div class="order" style="background: #999;margin-right: 5px;">
             <div class="order-handler fixed-width">
@@ -103,14 +94,12 @@
       </div>
       <!-- 盘口 -->
       <vdr
-        :w="280"
-        :h="840"
-        :parent="true"
-        :debug="false"
-        :isConflictCheck="true"
-        :snap="true"
-        :snapTolerance="10"
-        @refLineParams="getRefLineParams">
+      :x="1000" 
+      :y="5"
+      :w="260"
+      :h="840"
+      style="border: 1px solid black;"
+      >
       <div class="left plate-wrap" style="position:relative; flex: 0 0 17%;">
         <div class="handlers">
           <span @click="changePlate('all')" class="handler handler-all" :class="{active:selectedPlate=='all'}"></span>
@@ -269,15 +258,13 @@
       </div>
       </vdr>
       <!-- 成交记录 -->
-      <vdr
-        :w="280"
-        :h="840"
-        :parent="true"
-        :debug="false"
-        :isConflictCheck="true"
-        :snap="true"
-        :snapTolerance="10"
-        @refLineParams="getRefLineParams">
+      <vdr 
+      :x="1270" 
+      :y="5"
+      :w="260"
+      :h="840"
+      style="border: 1px solid black;"
+      >
       <div class="left plate-wrap" style="position:relative; flex: 0 0 13%;">
         <div style="background-color: #192330;height:40px;line-height:40px;padding-left:5px;color:#61688A;font-size: 13px;">
           <span>{{$t("swap.latestdeal")}}</span>
@@ -317,16 +304,6 @@
         </div>
       </div>
       </vdr>
-      <span class="ref-line v-line"
-            v-for="item in vLine"
-            v-show="item.display"
-            :style="{ left: item.position, top: item.origin, height: item.lineLength}"
-      />
-      <span class="ref-line h-line"
-            v-for="item in hLine"
-            v-show="item.display"
-            :style="{ top: item.position, left: item.origin, width: item.lineLength}"
-       />
     </div>
     <!-- 弹出框: 变更仓位模式 -->
     <Modal
@@ -2666,6 +2643,10 @@ $night-color: #fff;
   display: block !important;
   text-align: center ;
   margin-top: 10px;;
+}
+
+.my-class {
+    border: 1px solid black;
 }
 
 .swap .symbol .item{
