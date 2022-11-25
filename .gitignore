@@ -3,3 +3,5 @@ package-lock.json
 __MACOSX/
 build/
 dist/
+dist.zip
+build.zip

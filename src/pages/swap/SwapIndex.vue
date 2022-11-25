@@ -1,5 +1,5 @@
 <template>
-  <div class="container swap "    :class="skin">
+  <div class="container swap "   style="position:relative;overflow:scroll;" :class="skin">
     <div style=" height: 800px; width: 1200px; position: relative;margin: 0 auto" class="main">
       <div class="swp-main">
       <vdr 
