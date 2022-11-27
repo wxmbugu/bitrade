@@ -21,7 +21,7 @@
         </div>
       </vdr>
       <vdr 
-      :w="1120"
+      :w="820"
       :h="510" 
       :x="-124" 
       :y="5"
@@ -97,7 +97,7 @@
       :x="1000" 
       :y="5"
       :w="260"
-      :h="840"
+      :h="520"
       style="border: 1px solid black;"
       >
       <div class="left plate-wrap" style="position:relative; flex: 0 0 17%;">
@@ -114,9 +114,18 @@
           <span v-else-if="currentCoin.change<0" class="sell">↓</span>
           <!-- <span class="price-cny"> ≈ {{currentCoin.usdRate*CNYRate | toFixed(2)}} CNY</span> -->
         </div>
+       
         <!-- 盘口：买 -->
         <Table v-show="selectedPlate!='sell'" @on-current-change="sellPlate" highlight-row class="buy_table" :class="{hidden:selectedPlate==='all'}" :columns="plate.columns" :data="plate.bidRows" :no-data-text="$t('common.nodata')"></Table>
-
+      </div>
+      </vdr>
+      <vdr
+      :x="1000" 
+      :y="520"
+      :w="260"
+      :h="320"
+      style="border: 1px solid black;"
+      >
         <!-- 开仓/平仓 -->
         <div class="order" style="margin-top: 5px;background-color: #192330;height: 320px;">
           <div class="order-handler" style="border-bottom: 1px solid rgb(39, 49, 62);">
@@ -255,14 +264,14 @@
             </div>
           </div>
         </div>
-      </div>
       </vdr>
+     
       <!-- 成交记录 -->
       <vdr 
       :x="1270" 
       :y="5"
       :w="260"
-      :h="840"
+      :h="520"
       style="border: 1px solid black;"
       >
       <div class="left plate-wrap" style="position:relative; flex: 0 0 13%;">
@@ -272,12 +281,22 @@
         <div class="trade-wrap">
           <Table height="472" :columns="trade.columns" :data="trade.rows" :no-data-text="$t('common.nodata')"></Table>
         </div>
+      </div>
+      </vdr>
         <!-- 我的合约账户 -->
+        <vdr
+        :x="1270" 
+        :y="520"
+        :w="260"
+        :h="320"
+        style="border: 1px solid black;"
+      >
         <div class="order" style="margin-top: 5px;min-height: 320px;background-color: #192330;color:#61688A;">
           <div style="height:32px;line-height:32px;padding-left:10px;border-bottom: 1px solid #27313e;font-size: 13px;">
             <span>{{$t("swap.myswapaccount")}}</span>
               <!-- <router-link class="linkmore" to="/uc/swapAssets/">{{$t("swap.zijinhuazhuan")}}</router-link> -->
           </div>
+         
           <div class="table swap-my-account">
             <div class="account-item" style="margin-top: 20px;">
               <div style="width:35%;" >{{$t("swap.accountmode")}}</div>     
@@ -286,6 +305,7 @@
                 <Button @click="showMarginModeModal()" v-if="marginMode === '0'" size="small">{{$t("swap.marginMode2")}}</Button>
               </div>
             </div>
+            
             <div class="account-item" style="margin-top: 20px;height:42px;padding-bottom:5px;border-bottom: 1px dashed #27313e;">
               <div style="width:35%;">{{$t("swap.accountmargin")}}</div>
               <div class="margin" style="width: 65%;display: flex;justify-content: space-between;">
@@ -302,8 +322,31 @@
             <div class="account-item"> <div>{{$t("swap.principalRate")}}</div>   <div><span>{{assetRate | percent}} %</span></div></div>
           </div>
         </div>
+        </vdr>
+      <vdr 
+      :w="300"
+      :h="520"
+      :x="700" 
+      :y="5"
+      style="border: 1px solid black;">
+      <div class="hello">
+      <h1>Twitter Feed</h1>
+      <div class="tabs-component-tabs">
+      <tabs :options="{ useUrlFragment: false }" nav-item-class="nav-item">
+        <tab  name="First tab">
+          <iframe
+            src="https://widget.taggbox.com/114830"
+            style="width: 300px; height: 600px; border: none"
+          ></iframe>
+        </tab>
+        <tab name="Second tab">
+         
+        </tab>
+      </tabs>
+    </div>
       </div>
       </vdr>
+
     </div>
     <!-- 弹出框: 变更仓位模式 -->
     <Modal
@@ -359,13 +402,14 @@ var SockJS = require("sockjs-client");
 var moment = require("moment");
 import DepthGraph from "@components/exchange/DepthGraph.vue";
 import $ from "@js/jquery.min.js";
+import { Tweet, Moment, Timeline } from "vue-tweet-embed";
 //import VueDraggableResizable from './components/vue-draggable-resizable'
 //import './components/vue-draggable-resizable.css'
 import vdr from 'vue-draggable-resizable-gorkys'
 import 'vue-draggable-resizable-gorkys/dist/VueDraggableResizable.css'
 
 export default {
-  components: { expandRow, DepthGraph,vdr},
+  components: { expandRow, DepthGraph,vdr,Tweet,Moment,Timeline},
   data() {
     let self = this;
     return {
@@ -2631,6 +2675,8 @@ $night-color: #fff;
   display: block !important;
 
 }
+
+
 .swp-main{
   display: block !important;
 }
@@ -2653,6 +2699,12 @@ $night-color: #fff;
   display: flex !important;
 padding-top: 5px;
 padding-bottom: 5px;
+}
+
+.tabs-component-tabs {
+  flex-direction: row;
+  flex: auto;
+  list-style: none;
 }
 
 .swap .symbol .text{
