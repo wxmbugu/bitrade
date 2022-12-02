@@ -4,6 +4,7 @@
       <div class="swp-main">
       <vdr 
       :h="510"
+      :w="280"
       :x="-330" 
       :y="5" 
       class-name="my-class"
@@ -21,9 +22,9 @@
         </div>
       </vdr>
       <vdr 
-      :w="820"
+      :w="1030"
       :h="510" 
-      :x="-124" 
+      :x="-40" 
       :y="5"
       style="border: 1px solid black;">
         <div class="center">
@@ -323,29 +324,30 @@
           </div>
         </div>
         </vdr>
-      <vdr 
-      :w="300"
-      :h="520"
-      :x="700" 
-      :y="5"
-      style="border: 1px solid black;">
-      <div class="hello">
-      <h1>Twitter Feed</h1>
-      <div class="tabs-component-tabs">
-      <tabs :options="{ useUrlFragment: false }" nav-item-class="nav-item">
-        <tab  name="First tab">
-          <iframe
-            src="https://widget.taggbox.com/114830"
-            style="width: 300px; height: 600px; border: none"
-          ></iframe>
-        </tab>
-        <tab name="Second tab">
-         
-        </tab>
-      </tabs>
-    </div>
-      </div>
-      </vdr>
+        <!-- Twitter Feed -->
+    <!--   <vdr  -->
+    <!--   :w="300" -->
+    <!--   :h="520" -->
+    <!--   :x="700"  -->
+    <!--   :y="5" -->
+    <!--   style="border: 1px solid black;"> -->
+    <!--   <div class="hello"> -->
+    <!--   <h1>Twitter Feed</h1> -->
+    <!--   <div class="tabs-component-tabs"> -->
+    <!--   <tabs :options="{ useUrlFragment: false }" nav-item-class="nav-item"> -->
+    <!--     <tab  name="First tab"> -->
+    <!--       <iframe -->
+    <!--         src="https://widget.taggbox.com/114830" -->
+    <!--         style="width: 300px; height: 600px; border: none" -->
+    <!--       ></iframe> -->
+    <!--     </tab> -->
+    <!--     <tab name="Second tab"> -->
+    <!--       -->
+    <!--     </tab> -->
+    <!--   </tabs> -->
+    <!-- </div> -->
+    <!--   </div> -->
+    <!--   </vdr> -->
 
     </div>
     <!-- 弹出框: 变更仓位模式 -->
