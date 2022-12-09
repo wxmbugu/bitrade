@@ -106,7 +106,7 @@
       :resizable=false
       style="border: 0px solid black;"
       >
-      <div class="left plate-wrap" style="resize:both;overflow: auto; max-height: 510px; position:relative; flex: 0 0 17%;">
+      <div class="left plate-wrap" style="resize:both;overflow: auto; background: #192330; position:relative; flex: 0 0 17%;">
         <div class="handlers">
           <span @click="changePlate('all')" class="handler handler-all" :class="{active:selectedPlate=='all'}"></span>
           <span @click="changePlate('buy')" class="handler handler-green" :class="{active:selectedPlate=='buy'}"></span>
