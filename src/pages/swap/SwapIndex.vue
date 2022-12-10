@@ -30,8 +30,8 @@
       :y="5"
       :resizable=false
       style="border: 0px solid black;">
-        <div  style="resize: both;overflow: auto; max-height: 510px;" class="center">
-          <div class="symbol">
+        <div  style="resize: both;overflow: auto;background: #192330;" class="center">
+          <div  class="symbol">
             <div class="item" style="margin-left: 10px;">
                 <span class="coin">{{currentCoin.symbol}}
                 </span>
@@ -61,6 +61,7 @@
               <!-- <img src="../../assets/images/exchange/light-switch.png" alt=""> -->
             </div>
           </div>
+          <hr color="#0b1520">
           <div class="imgtable">
             <div class="handler">
               <span @click="changeImgTable('k')" :class="{active:currentImgTable==='k'}">{{$t("swap.kline")}}</span>
