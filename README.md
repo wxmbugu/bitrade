@@ -11,7 +11,7 @@ The following dependencies are required to run an instance:
 
 ``` bash
 # install dependencies
-npm i
+npm install --force
 
 # serve with hot reload at localhost:8080
 npm run dev
