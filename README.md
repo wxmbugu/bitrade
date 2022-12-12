@@ -4,7 +4,7 @@
 ## Install Prerequisites
 The following dependencies are required to run an instance:
 
-1. NodeJS - 9.11.2
+1. NodeJS - ^9.11.2
 2. Npm - ^5.6.0
 
 ## Build Setup
