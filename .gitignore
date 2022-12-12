@@ -4,6 +4,9 @@ __MACOSX/
 dist/
 dist.zip
 build.zip
+<<<<<<< HEAD
 debug.log
 Latest Files.zip
 UpdatedArchive.zip
+=======
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15

@@ -43,7 +43,11 @@ Vue.use(ViewUI, { locale });
 
 Vue.prototype.$axios = Axios;
 Vue.prototype.rootHost = "https://trade.disdev.trade"; // disdev subdomain
+<<<<<<< HEAD
 Vue.prototype.host = "https://api.disdev.trade"; //Btearn
+=======
+Vue.prototype.host = "https://api.bybitbot.crypttops.com"; //Btearn
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
 
 Vue.prototype.api = Api;
 Vue.http.options.credentials = true;

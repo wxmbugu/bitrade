@@ -143,8 +143,13 @@
         </FormItem>
       </Form>
       <div slot="footer">
+<<<<<<< HEAD
         <span style="margin-right:50px" @click="cancel">Cancel</span>
         <span style="background:#f0ac19;color:#fff;width:80px;border-radius:30px;display:inline-block;text-align:center;height:30px;line-height: 30px;" @click="ok">OK</span>
+=======
+        <span style="margin-right:50px" @click="cancel">取消</span>
+        <span style="background:#f0ac19;color:#fff;width:80px;border-radius:30px;display:inline-block;text-align:center;height:30px;line-height: 30px;" @click="ok">确定</span>
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
       </div>
     </Modal>
 
