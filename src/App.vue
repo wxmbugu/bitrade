@@ -1666,15 +1666,26 @@ export default {
   }
 }
 .appdownload {
+<<<<<<< HEAD
+  ::v-deep .ivu-poptip-inner {
+=======
   /deep/ .ivu-poptip-inner {
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
     background-color: #27313e;
     color: #fff;
     padding-top: 10px;
   }
+<<<<<<< HEAD
+  ::v-deep .ivu-poptip-popper .ivu-poptip-arrow {
+    border-bottom-color: #27313e;
+  }
+  ::v-deep .ivu-poptip-popper .ivu-poptip-arrow:after {
+=======
   /deep/ .ivu-poptip-popper .ivu-poptip-arrow {
     border-bottom-color: #27313e;
   }
   /deep/ .ivu-poptip-popper .ivu-poptip-arrow:after {
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
     border-bottom-color: #27313e;
   }
 }

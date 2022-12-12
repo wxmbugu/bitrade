@@ -2086,7 +2086,11 @@ export default {
 		);
 		if (that.isLogin) {
 		  //订阅委托取消信息
+<<<<<<< HEAD
+		  
+=======
 		  /*
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
 		  stompClient.subscribe(
 		    "/topic/swap/order-canceled/" +
 		      that.currentCoin.symbol +
@@ -2119,7 +2123,11 @@ export default {
 		      that.refreshAccount();
 		    }
 		  );
+<<<<<<< HEAD
+
+=======
 		  */
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
 		}
 		
 		//订阅盘口消息
@@ -2272,7 +2280,11 @@ export default {
     cancel(eid) {
       var that = this;
       this.$Modal.confirm({
+<<<<<<< HEAD
+        title: "Cancellation Reminder",
+=======
         title: "撤单提示",
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
         content: this.$t("swap.undotip"),
         onOk: () => {
           let params = {
@@ -2287,6 +2299,10 @@ export default {
                   title: this.$t("swap.tip"),
                   desc: this.$t("swap.cancelsuccess")
                 });
+<<<<<<< HEAD
+                that.getCurrentEntrustOrders()
+=======
+>>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
                 setTimeout(function () {
                   that.getMemberContractWallet();
                 }, 1000);
