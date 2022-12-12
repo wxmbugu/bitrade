@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+__MACOSX/
+dist/
+dist.zip
+build.zip
+debug.log
+Latest Files.zip
+UpdatedArchive.zip
