@@ -297,11 +297,7 @@ export default {
                 if (this.$route.query.key != null && this.$route.query.key != "") {
                   localStorage.setItem("USERKEY", this.$route.query.key);
                 }
-<<<<<<< HEAD
-                 this.$router.push("/swap/btc_usdt");
-=======
                  this.$router.push("/");
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
               } else {
                 this.$Message.error(resp.message);
               }

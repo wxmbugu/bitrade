@@ -84,13 +84,8 @@ export default {
       walletTwoList: [],
       walletOneList: [this.$t('uc.finance.swap.currencyaccount') + '(USDT)'],
       assetsWallet: {
-<<<<<<< HEAD
         id: 1,
         balance: 20
-=======
-        id: 0,
-        balance: 0
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
       },
       swapWallet: {
         id: 0,
@@ -106,10 +101,7 @@ export default {
       //获取
       this.$http.post(this.host + "/swap/wallet/list").then(response => {
         var resp = response.body;
-<<<<<<< HEAD
         console.log('From the wallet/list', resp)
-=======
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
         if (resp.code == 0) {
           this.tableMoney = resp.data;
           for (let i = 0; i < this.tableMoney.length; i++) {
@@ -136,14 +128,9 @@ export default {
       //获取
       this.$http.post(this.host + "/uc/asset/wallet/usdt").then(response => {
         var resp = response.body;
-<<<<<<< HEAD
         console.log('Getting assets', resp)
         if (resp.code == 0) {
           // this.assetsWallet = resp.data;
-=======
-        if (resp.code == 0) {
-          this.assetsWallet = resp.data;
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
         } else {
           this.$Message.error(this.loginmsg);
         }
@@ -235,11 +222,7 @@ export default {
       let self = this;
       let columns = [];
       columns.push({
-<<<<<<< HEAD
         title: "Coin",//this.$t("uc.finance.swap.swaptype"),
-=======
-        title: this.$t("uc.finance.swap.swaptype"),
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
         align: "center",
         render(h, params) {
           return h(
@@ -249,11 +232,7 @@ export default {
                 title: params.row.symbol
               }
             },
-<<<<<<< HEAD
             params.row.symbol.replace("/", "") //+ " " + self.$t("uc.finance.swap.swap"),
-=======
-            params.row.symbol.replace("/", "") + " " + self.$t("uc.finance.swap.swap"),
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
           );
         }
       });

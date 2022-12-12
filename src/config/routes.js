@@ -1,9 +1,5 @@
 export default [
-<<<<<<< HEAD
-//    { path: '/', component: resolve=>(require(["../pages/index/Index.vue"],resolve)) },
-=======
     { path: '/', component: resolve=>(require(["../pages/index/Index.vue"],resolve)) },
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
     { path: '/', component: resolve=>(require(["../pages/swap/SwapIndex"],resolve))},
     { path: '/index', component: resolve=>(require(["../pages/index/Index.vue"],resolve)) },
     { path: '/login', component: resolve=>(require(["../pages/uc/Login.vue"],resolve)) },

@@ -2,22 +2,24 @@
   <div class="container swap "   style="position:relative;overflow:scroll;" :class="skin">
     <div style=" height: 800px; width: 1200px; position: relative;margin: 0 auto" class="main">
       <div class="swp-main">
+     
       <vdr 
-      :h="510"
+      :h="auto"
       :w="280"
       :x="-330" 
       :y="5" 
+      :resizable=false
       class-name="my-class"
       >
         <div class="right">
-          <div class="coin-menu">
+          <div  style="height: 510px; resize: both;overflow: auto;" class="coin-menu">
             <div style="padding: 8px 10px;height:48px;">
               <Input search :placeholder="$t('common.searchplaceholderswap')" @on-change="seachInputChange" v-model="searchKey"/>
             </div>
             <div class="sc_filter" style="display: none;">
               <span @click="changeBaseCion('usdt')" :class="{active:basecion==='usdt'}">USDT</span>
             </div>
-            <Table height="463" @on-current-change="gohref" highlight-row id="USDT" v-show="basecion==='usdt'" :columns="coins.columns" :data="dataIndex"></Table>
+            <Table height="auto" @on-current-change="gohref" highlight-row id="USDT" v-show="basecion==='usdt'" :columns="coins.columns" :data="dataIndex"></Table>
           </div>
         </div>
       </vdr>
@@ -26,9 +28,10 @@
       :h="510" 
       :x="-40" 
       :y="5"
-      style="border: 1px solid black;">
-        <div class="center">
-          <div class="symbol">
+      :resizable=false
+      style="border: 0px solid black;">
+        <div  style="resize: both;overflow: auto;background: #192330;" class="center">
+          <div  class="symbol">
             <div class="item" style="margin-left: 10px;">
                 <span class="coin">{{currentCoin.symbol}}
                 </span>
@@ -58,6 +61,7 @@
               <!-- <img src="../../assets/images/exchange/light-switch.png" alt=""> -->
             </div>
           </div>
+          <hr color="#0b1520">
           <div class="imgtable">
             <div class="handler">
               <span @click="changeImgTable('k')" :class="{active:currentImgTable==='k'}">{{$t("swap.kline")}}</span>
@@ -75,19 +79,20 @@
       :h="320"
       :x="-330" 
       :y="520"
-      style="border: 1px solid black;"
+      :resizable=false
+      style="border: 0px solid black;"
       >
         <div style="width:100%;margin-top: 5px;flex: 0 0 100%;" class="overflow-x-scroll">
-          <div class="order" style="background: #999;margin-right: 5px;">
+          <div class="order" style="resize:both;overflow: auto; height: 320px; background: #192330;margin-right: 5px;">
             <div class="order-handler fixed-width">
               <span @click="changeOrder('currentPositions')" :class="{active:selectedOrder==='currentPositions'}">{{$t('swap.currentposition')}}</span>
               <span @click="changeOrder('currentEntrustOrders')" :class="{active:selectedOrder==='currentEntrustOrders'}">{{$t('swap.curdelegation')}}</span>
               <span @click="changeOrder('historyEntrustOrders')" :class="{active:selectedOrder==='historyEntrustOrders'}">{{$t('swap.hisdelegation')}}</span>
             </div>
             <div class="table fixed-width">
-              <Table height="285" v-if="selectedOrder==='currentPositions'" :columns="currentPosition.columns" :data="positionList" :no-data-text="$t('common.nodata')"></Table>
-              <Table height="285" v-if="selectedOrder==='currentEntrustOrders'" :columns="currentOrder.columns" :no-data-text="$t('common.nodata')" :data="currentEntrustOrderList"></Table>
-              <Table height="285" v-if="selectedOrder==='historyEntrustOrders'" :columns="historyOrder.columns" :no-data-text="$t('common.nodata')" :data="historyEntrustOrderList"></Table>
+              <Table height="auto" v-if="selectedOrder==='currentPositions'" :columns="currentPosition.columns" :data="positionList" :no-data-text="$t('common.nodata')"></Table>
+              <Table height="auto" v-if="selectedOrder==='currentEntrustOrders'" :columns="currentOrder.columns" :no-data-text="$t('common.nodata')" :data="currentEntrustOrderList"></Table>
+              <Table height="auto" v-if="selectedOrder==='historyEntrustOrders'" :columns="historyOrder.columns" :no-data-text="$t('common.nodata')" :data="historyEntrustOrderList"></Table>
             </div>
           </div>
         </div>
@@ -99,9 +104,10 @@
       :y="5"
       :w="260"
       :h="520"
-      style="border: 1px solid black;"
+      :resizable=false
+      style="border: 0px solid black;"
       >
-      <div class="left plate-wrap" style="position:relative; flex: 0 0 17%;">
+      <div class="left plate-wrap" style="resize:both;overflow: auto; background: #192330; position:relative; flex: 0 0 17%;">
         <div class="handlers">
           <span @click="changePlate('all')" class="handler handler-all" :class="{active:selectedPlate=='all'}"></span>
           <span @click="changePlate('buy')" class="handler handler-green" :class="{active:selectedPlate=='buy'}"></span>
@@ -117,7 +123,7 @@
         </div>
        
         <!-- 盘口：买 -->
-        <Table v-show="selectedPlate!='sell'" @on-current-change="sellPlate" highlight-row class="buy_table" :class="{hidden:selectedPlate==='all'}" :columns="plate.columns" :data="plate.bidRows" :no-data-text="$t('common.nodata')"></Table>
+        <Table   v-show="selectedPlate!='sell'" @on-current-change="sellPlate" highlight-row class="buy_table" :class="{hidden:selectedPlate==='all'}" :columns="plate.columns" :data="plate.bidRows" :no-data-text="$t('common.nodata')"></Table>
       </div>
       </vdr>
       <vdr
@@ -125,10 +131,11 @@
       :y="520"
       :w="260"
       :h="320"
-      style="border: 1px solid black;"
+      style="border: 0px solid black;"
+      :resizable=false
       >
         <!-- 开仓/平仓 -->
-        <div class="order" style="margin-top: 5px;background-color: #192330;height: 320px;">
+        <div class="order" style="resize:both;overflow: auto;margin-top: 5px;background-color: #192330;height: 320px;">
           <div class="order-handler" style="border-bottom: 1px solid rgb(39, 49, 62);">
             <span style="width: 50%;text-align: center;" @click="entrustChange(1)" :class="{active:entrustType===1}">{{$t('swap.open')}}</span>
             <span style="width: 50%;text-align: center;" @click="entrustChange(2)" :class="{active:entrustType===2}">{{$t('swap.close')}}</span>
@@ -273,14 +280,15 @@
       :y="5"
       :w="260"
       :h="520"
-      style="border: 1px solid black;"
+      :resizable=false
+      style="border: 0px solid black;"
       >
-      <div class="left plate-wrap" style="position:relative; flex: 0 0 13%;">
+      <div class="left plate-wrap" style="position:relative;resize:both;overflow: auto; height: 510px;background-color: #192330;flex: 0 0 13%;">
         <div style="background-color: #192330;height:40px;line-height:40px;padding-left:5px;color:#61688A;font-size: 13px;">
           <span>{{$t("swap.latestdeal")}}</span>
         </div>
         <div class="trade-wrap">
-          <Table height="472" :columns="trade.columns" :data="trade.rows" :no-data-text="$t('common.nodata')"></Table>
+          <Table height="auto" :columns="trade.columns" :data="trade.rows" :no-data-text="$t('common.nodata')"></Table>
         </div>
       </div>
       </vdr>
@@ -290,9 +298,10 @@
         :y="520"
         :w="260"
         :h="320"
-        style="border: 1px solid black;"
+        :resizable=false
+        style="border: 0px solid black;"
       >
-        <div class="order" style="margin-top: 5px;min-height: 320px;background-color: #192330;color:#61688A;">
+        <div class="order" style="resize:both;overflow: auto;margin-top: 5px;min-height: 320px;background-color: #192330;color:#61688A;">
           <div style="height:32px;line-height:32px;padding-left:10px;border-bottom: 1px solid #27313e;font-size: 13px;">
             <span>{{$t("swap.myswapaccount")}}</span>
               <!-- <router-link class="linkmore" to="/uc/swapAssets/">{{$t("swap.zijinhuazhuan")}}</router-link> -->
@@ -2086,11 +2095,7 @@ export default {
 		);
 		if (that.isLogin) {
 		  //订阅委托取消信息
-<<<<<<< HEAD
 		  
-=======
-		  /*
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
 		  stompClient.subscribe(
 		    "/topic/swap/order-canceled/" +
 		      that.currentCoin.symbol +
@@ -2123,11 +2128,6 @@ export default {
 		      that.refreshAccount();
 		    }
 		  );
-<<<<<<< HEAD
-
-=======
-		  */
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
 		}
 		
 		//订阅盘口消息
@@ -2280,11 +2280,7 @@ export default {
     cancel(eid) {
       var that = this;
       this.$Modal.confirm({
-<<<<<<< HEAD
         title: "Cancellation Reminder",
-=======
-        title: "撤单提示",
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
         content: this.$t("swap.undotip"),
         onOk: () => {
           let params = {
@@ -2299,10 +2295,7 @@ export default {
                   title: this.$t("swap.tip"),
                   desc: this.$t("swap.cancelsuccess")
                 });
-<<<<<<< HEAD
                 that.getCurrentEntrustOrders()
-=======
->>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
                 setTimeout(function () {
                   that.getMemberContractWallet();
                 }, 1000);
