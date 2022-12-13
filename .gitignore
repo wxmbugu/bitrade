@@ -1,6 +1,7 @@
 node_modules/
 package-lock.json
 __MACOSX/
+<<<<<<< Updated upstream
 dist/
 dist.zip
 build.zip
@@ -10,3 +11,9 @@ Latest Files.zip
 UpdatedArchive.zip
 =======
 >>>>>>> ed3b0f22efbad7e32e9646d25ac4705f7cb93b15
+=======
+build/
+build.zip
+dist.zip
+dist/
+>>>>>>> Stashed changes
